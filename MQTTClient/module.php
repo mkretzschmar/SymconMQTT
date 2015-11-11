@@ -36,8 +36,7 @@
          */
         private function TestBroker() {
             echo $this->InstanceID.PHP_EOL;
-            echo "Publishing message on topic ".$Topic.PHP_EOL;
-            $this->PublishMQTTMessage("test", "TestBroker() ID ".$this->InstanceID, 0);
+            PublishMQTTMessage("test", "TestBroker() ID ".$this->InstanceID, 0);
         }
         
         /**
@@ -50,7 +49,7 @@
         public function Publish(string $Topic, string $Content) {
             echo $this->InstanceID.PHP_EOL;
             echo "Publishing message on topic ".$Topic.PHP_EOL;
-            $this->PublishMQTTMessage($Topic, $Content, 0);
+            PublishMQTTMessage($Topic, $Content, 0);
         }
         
         /**
@@ -66,7 +65,7 @@
     
     
 
-    ################## helper functions / wrapper
+        ################## helper functions / wrapper
 
         private function PublishMQTTMessage($topic, $message, $QoS) {
            	//$mqtt = new phpMQTT("whz-aiis-work", 1883, "SYMCON01"); //Change client name to something unique
