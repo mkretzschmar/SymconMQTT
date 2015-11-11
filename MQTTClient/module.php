@@ -59,10 +59,10 @@
         *
         */
         public function Publish(string $Topic, string $Content) {
-			$topic = $this->ReadPropertyString("Topic");
-			$content = $this->ReadPropertyString("Content");
-            echo "[{$this->InstanceID}] Publishing message on topic: ".$topic.PHP_EOL;
-            $this->PublishMQTTMessage($topic, $content, 0);
+			//$topic = $this->ReadPropertyString("Topic");
+			//$content = $this->ReadPropertyString("Content");
+            echo "[{$this->InstanceID}] Publishing message on topic: ".$Topic.PHP_EOL;
+            $this->PublishMQTTMessage($Topic, $Content, 0);
         }
         
         /**
