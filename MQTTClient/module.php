@@ -23,9 +23,10 @@
             $this->RegisterPropertyInteger("Port", 1883);
         }
         
+		//
         public function ApplyChanges()
         {
-        	parent::Create(); // DO NOT EDIT OR DELETE THIS LINE!
+        	parent::ApplyChanges(); // DO NOT EDIT OR DELETE THIS LINE!
 			
     		//$this->RegisterProfileIntegerEx("milight.State", "", "", "", Array(
     		//	Array(0, 'off', '', -1),
@@ -56,19 +57,18 @@
         * Die folgenden Funktionen stehen automatisch zur Verfügung, wenn das Modul über die "Module Control" eingefügt wurden.
         * Die Funktionen werden, mit dem selbst eingerichteten Prefix, in PHP und JSON-RPC wiefolgt zur Verfügung gestellt:
         *
-        * MQT_Publish($id, $topic, $content);
+        * MQTT_Publish($id, $topic, $content);
         *
         */
         public function Publish(string $Topic, string $Content) {
-            echo $this->InstanceID.PHP_EOL;
-            echo "Publishing message on topic ".$Topic.PHP_EOL;
+            echo "[{$this->InstanceID}] Publishing message on topic ".$Topic.PHP_EOL;
             $this::PublishMQTTMessage($Topic, $Content, 0);
         }
         
         /**
         * 
         *
-        * MQT_RequestInfo($id);
+        * MQTT_RequestInfo($id);
         *
         */
         public function RequestInfo() {
