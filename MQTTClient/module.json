@@ -1,8 +1,8 @@
 {
     "id": "{4240CD05-760E-4E83-B5D1-DC237C9E160F}",
     "name": "MQTTClient",
-    "type": 1,
-    "vendor": "marekre",
+    "type": 3,
+    "vendor": "www.samsol.de",
     "aliases":
     [
         "MQTTClient"
