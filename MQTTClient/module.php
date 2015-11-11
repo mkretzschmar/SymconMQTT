@@ -2,7 +2,7 @@
 /**
  *
  */
-    class MQTTClient extends IPSModule {
+    class MQTTPublisher extends IPSModule {
         
 		//
 		public function __construct($InstanceID) {
@@ -16,7 +16,7 @@
         	
             parent::Create(); // DO NOT EDIT OR DELETE THIS LINE!
 			
-            $this->RegisterPropertyString("Name", "MQTTClient");
+            $this->RegisterPropertyString("Name", "MQTTPublisher");
             $this->RegisterPropertyString("ClientID", "SYMCON_".gethostname());
             $this->RegisterPropertyString("BrokerURL", "141.32.56.57");
             $this->RegisterPropertyInteger("Port", 1883);
