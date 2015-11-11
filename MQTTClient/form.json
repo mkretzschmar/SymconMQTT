@@ -27,8 +27,8 @@
 		{ "type": "Button", "label": "Update", "onClick": "MQTT_RequestInfo($id);" },
         { "type": "ValidationTextBox", "name": "Topic", "caption": "Topic" },
         { "type": "ValidationTextBox", "name": "Content", "caption": "Payload" },
-        { "type": "NumberSpinner",     "name": "Retained", "caption": "Retained" },
-		{ "type": "CheckBox",          "name": "CleanSession", "caption": "Clean Session"},
+        { "type": "NumberSpinner",     "name": "Qos", "caption": "QoS" },
+		{ "type": "CheckBox",          "name": "Retained", "caption": "Retained"},
 		{ "type": "Button", "label": "Publish", "onClick": "MQTT_Publish($id, $Topic, $Content, $Qos, $Retained);" }
 	],
     "status":
