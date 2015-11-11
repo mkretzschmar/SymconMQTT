@@ -4,10 +4,19 @@
  */
     class MQTTClient extends IPSModule {
         
+		//
+		public function __construct($InstanceID) {
+
+            parent::__construct($InstanceID);  // DO NOT EDIT OR DELETE THIS LINE!
+ 
+            // Custom code
+        }
+		
+		//
         public function Create()
         {
         	
-            parent::Create(); // DO NOT EDIT THIS LINE!
+            parent::Create(); // DO NOT EDIT OR DELETE THIS LINE!
 			
             $this->RegisterPropertyString("ClientID", "SYMCON_".gethostname());
             $this->RegisterPropertyString("BrokerURL", "141.32.56.57");
@@ -16,8 +25,8 @@
         
         public function ApplyChanges()
         {
-        	//Never delete this line!
-            parent::ApplyChanges();
+        	parent::Create(); // DO NOT EDIT OR DELETE THIS LINE!
+			
     		//$this->RegisterProfileIntegerEx("milight.State", "", "", "", Array(
     		//	Array(0, 'off', '', -1),
     		//	Array(1, 'white', '', -1),
@@ -31,15 +40,16 @@
     		//$this->EnableAction("Brightness");
     		//$this->SetVisibility(0);
     		
-    		$this->TestBroker();
+    		$this::TestBroker();
     	}
         
         /**
          * 
          */
         private function TestBroker() {
-            echo $this->InstanceID.PHP_EOL;
+            echo "Instanz: ".$this->InstanceID.PHP_EOL;
             $this->PublishMQTTMessage("test", "TestBroker() ID ".$this->InstanceID, 0);
+			echo "Verbindung zum MQTT Broker erfolgreich hergestellt.".PHP_EOL;
         }
         
         /**
@@ -52,7 +62,7 @@
         public function Publish(string $Topic, string $Content) {
             echo $this->InstanceID.PHP_EOL;
             echo "Publishing message on topic ".$Topic.PHP_EOL;
-            $this->PublishMQTTMessage($Topic, $Content, 0);
+            $this::PublishMQTTMessage($Topic, $Content, 0);
         }
         
         /**
@@ -68,7 +78,7 @@
     
     
 
-        ################## helper functions / wrapper
+################## helper functions / wrapper
 
         private function PublishMQTTMessage($topic, $message, $QoS) {
            	//$mqtt = new phpMQTT("whz-aiis-work", 1883, "SYMCON01"); //Change client name to something unique
