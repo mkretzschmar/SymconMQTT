@@ -11,7 +11,7 @@
 	"actions":
 	[
 		{ "type": "Button", "label": "Update", "onClick": "MQT_RequestInfo($id);" },
-		{ "type": "Button", "label": "Test", "onClick": "MQT_Publish('test','test');" }
+		{ "type": "Button", "label": "Test", "onClick": "MQT_Publish($id, 'test','test');" }
 	],
     "status":
     [

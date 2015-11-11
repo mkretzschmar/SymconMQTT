@@ -8,10 +8,10 @@
         * MQT_Publish($id, $topic, $content);
         *
         */
-        public function Publish($topic, $content) {
+        public function Publish(string $Topic, string $Content) {
             echo $this->InstanceID.PHP_EOL;
-            echo "Publishing message on topic ".$topic.PHP_EOL;
-            MQTTHelper::sendMQTTMessage("test","This is a test.", 0);
+            echo "Publishing message on topic ".$Topic.PHP_EOL;
+            MQTTHelper::sendMQTTMessage($Topic, $Content, 0);
         }
         
         /**
