@@ -6,10 +6,8 @@
         
 		//
 		public function __construct($InstanceID) {
-
             parent::__construct($InstanceID);  // DO NOT EDIT OR DELETE THIS LINE!
- 
-            // Custom code
+             // Custom code
         }
 		
 		//
@@ -60,9 +58,11 @@
         * MQTT_Publish($id, $topic, $content);
         *
         */
-        public function Publish($Topic, $Content) {
-            echo "[{$this->InstanceID}] Publishing message on topic ".$Topic.PHP_EOL;
-            $this::PublishMQTTMessage($Topic, $Content, 0);
+        public function Publish(string $Topic, string $Content) {
+			$topic = $this->ReadPropertyString("Topic");
+			$content = $this->ReadPropertyString("Content");
+            echo "[{$this->InstanceID}] Publishing message on topic: ".$topic.PHP_EOL;
+            $this::PublishMQTTMessage($topic, $content, 0);
         }
         
         /**
