@@ -10,6 +10,7 @@ class MQTTPublisher extends IPSModule {
 	public function __construct($InstanceID) {
 		parent::__construct($InstanceID);
 		// DO NOT EDIT OR DELETE THIS LINE!
+		
 	}
 
 	/**
@@ -34,6 +35,7 @@ class MQTTPublisher extends IPSModule {
 		$this -> RegisterPropertyString("LastWillMessage", "Er ist tot, Jim");
 		//$this->RegisterPropertyInteger("LastWillQOS", 0);
 
+		$this -> RegisterPropertyBoolean("Retained", false);
 		$this -> RegisterPropertyInteger("Qos", 0);
 		$this -> RegisterPropertyString("Topic", "hello");
 		$this -> RegisterPropertyString("Content", "Hello from IP-Symcon!");
@@ -358,7 +360,7 @@ class phpMQTT {
 
 	/* publish: publishes $content on a $topic */
 	function publish($topic, $content, $qos = 0, $retain = 0) {
-		echo "qos: ".$qos."retain: ".$retain;
+		echo "qos: ".$qos.", retain: ".$retain;
 		$i = 0;
 		$buffer = "";
 
