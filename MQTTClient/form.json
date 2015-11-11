@@ -10,8 +10,8 @@
 	],
 	"actions":
 	[
-		{ "type": "Button", "label": "Update", "onClick": "MQT_RequestInfo($id);" },
-		{ "type": "Button", "label": "Test", "onClick": "MQT_Publish($id, 'test','test');" }
+		{ "type": "Button", "label": "Update", "onClick": "MQTT_RequestInfo($id);" },
+		{ "type": "Button", "label": "Publish", "onClick": "MQTT_Publish($id, $Topic, $Content);" }
 	],
     "status":
     [
