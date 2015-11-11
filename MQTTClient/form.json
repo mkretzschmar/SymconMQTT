@@ -7,7 +7,7 @@
 		{ "type": "CheckBox",          "name": "CleanSession", "caption": "Clean Session"},
 		{ "type": "Label", "caption": "Credentials (optional)" },
 		{ "type": "ValidationTextBox", "name": "Username",     "caption": "Benutzer" },
-        { "type": "PasswordTextBox",   "name": "Password",     "caption": "Passwort" },
+        { "type": "PasswordTextBox",   "name": "Password",   "caption": "Passwort" },
 		{ "type": "Label", "caption": "LastWill (optional)" },
 		{ "type": "ValidationTextBox", "name": "LastWillTopic", "caption": "LastWill Topic" },
 		{
@@ -27,8 +27,8 @@
 		{ "type": "Button", "label": "Update", "onClick": "MQTT_RequestInfo($id);" },
         { "type": "ValidationTextBox", "name": "Topic", "caption": "Topic" },
         { "type": "ValidationTextBox", "name": "Content", "caption": "Payload" },
-        { "type": "ValidationTextBox", "name": "Qos", "caption": "QoS" },
-		{ "type": "Button", "label": "Publish", "onClick": "MQTT_Publish($id, $Topic, $Content, $Qos);" }
+        { "type": "NumberSpinner", "name": "Qos", "caption": "QoS" },
+		{ "type": "Button", "label": "Publish", "onClick": "MQTT_Publish($id, $Topic, $Content, 0);" }
 	],
     "status":
     [
