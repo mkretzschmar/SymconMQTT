@@ -22,6 +22,7 @@
         */
         public function RequestInfo() {
             echo $this->InstanceID;
+            MQTTHelper::sendMQTTMessage("test", "test", 0);
         }
     }
     
