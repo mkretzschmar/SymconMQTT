@@ -48,13 +48,13 @@ class MQTTPublisher extends IPSModule {
 
 	/**
 	 * Die folgenden Funktionen stehen automatisch zur Verf�gung, wenn das Modul �ber die "Module Control" eingef�gt wurden.
-	 * Die Funktionen werden, mit dem selbst eingerichteten Prefix, in PHP und JSON-RPC wiefolgt zur Verf�gung gestellt:
+	 * Die Funktionen werden, mit dem selbst eingerichteten Prefix, in PHP und JSON-RPC wiefolgt zur Verfügung gestellt:
 	 *
 	 * MQTT_Publish($id, $topic, $content, $qos);
 	 *
 	 */
-	public function Publish(string $Topic, string $Content, int $Qos) {
-		echo "[{$this->InstanceID}] Publishing message on topic: " . $Topic . PHP_EOL;
+	public function Publish(string $Topic, string $Content, integer $Qos) {
+		echo "[{$this->InstanceID}] Publishing message on topic: " . $Topic . ". QoS: ". $Qos . PHP_EOL;
 		$this -> PublishMQTTMessage($Topic, $Content, $Qos);
 	}
 
