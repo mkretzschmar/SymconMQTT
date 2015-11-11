@@ -39,7 +39,7 @@
     		//$this->EnableAction("Brightness");
     		//$this->SetVisibility(0);
     		
-    		$this::TestBroker();
+    		$this->TestBroker();
     	}
         
         /**
@@ -47,8 +47,8 @@
          */
         private function TestBroker() {
             echo "Instanz: ".$this->InstanceID.PHP_EOL;
-            $this->PublishMQTTMessage("test", "TestBroker() ID ".$this->InstanceID, 0);
-			echo "Verbindung zum MQTT Broker erfolgreich hergestellt.".PHP_EOL;
+            $this->PublishMQTTMessage("test", "TestBroker() InstanceID=".$this->InstanceID, 0);
+			echo "Verbindung zum MQTT Broker erfolgreich getestet.".PHP_EOL;
         }
         
         /**
@@ -62,7 +62,7 @@
 			$topic = $this->ReadPropertyString("Topic");
 			$content = $this->ReadPropertyString("Content");
             echo "[{$this->InstanceID}] Publishing message on topic: ".$topic.PHP_EOL;
-            $this::PublishMQTTMessage($topic, $content, 0);
+            $this->PublishMQTTMessage($topic, $content, 0);
         }
         
         /**
