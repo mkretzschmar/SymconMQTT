@@ -2,39 +2,43 @@
 /**
  *
  */
-    class MQTTPublisher extends IPSModule {
+class MQTTPublisher extends IPSModule {
         
-		//
-		public function __construct($InstanceID) {
-            parent::__construct($InstanceID);  // DO NOT EDIT OR DELETE THIS LINE!
-        }
+	/**
+	 *
+	 */
+	public function __construct($InstanceID) {
+		parent::__construct($InstanceID);  // DO NOT EDIT OR DELETE THIS LINE!
+	}
+	
+	/**
+	 *
+	 */
+	public function Create() {
+
+		parent::Create(); // DO NOT EDIT OR DELETE THIS LINE!
+			
+		$this->RegisterPropertyString("ClientID", "SYMCON_".gethostname());
+		$this->RegisterPropertyString("BrokerURL", "141.32.56.57");
+		$this->RegisterPropertyInteger("Port", 1883);
+
+		$this->RegisterPropertyBoolean("CleanSession", true);
 		
-		//
-        public function Create()
-        {
-        	
-            parent::Create(); // DO NOT EDIT OR DELETE THIS LINE!
-			
-            $this->RegisterPropertyString("ClientID", "SYMCON_".gethostname());
-            $this->RegisterPropertyString("BrokerURL", "141.32.56.57");
-            $this->RegisterPropertyInteger("Port", 1883);
+		$this->RegisterPropertyString("Username", "");
+		$this->RegisterPropertyString("Password", "");
             
-			$this->RegisterPropertyBoolean("CleanSession", true);
-			
-			$this->RegisterPropertyString("Username", "");
-            $this->RegisterPropertyString("Password", "");
-            
-            $this->RegisterPropertyInteger("LastWillQOS", 0);
-			$this->RegisterPropertyString("LastWillTopic", "");
-            $this->RegisterPropertyString("LastWillMessage", "Er ist tot, Jim");
+		$this->RegisterPropertyInteger("LastWillQOS", 0);
+		$this->RegisterPropertyString("LastWillTopic", "");
+		$this->RegisterPropertyString("LastWillMessage", "Er ist tot, Jim");
             //$this->RegisterPropertyInteger("LastWillQOS", 0);
 
-            $this->RegisterPropertyInteger("QoS", 0);
+            $this->RegisterPropertyInteger("Qos", 0);
 			$this->RegisterPropertyString("Topic", "hello");
             $this->RegisterPropertyString("Content", "Hello from IP-Symcon!");
-        }
+	}
         
-		//
+		/**
+		 */
         public function ApplyChanges()
         {
         	parent::ApplyChanges(); // DO NOT EDIT OR DELETE THIS LINE!
@@ -44,12 +48,12 @@
         * Die folgenden Funktionen stehen automatisch zur Verfügung, wenn das Modul über die "Module Control" eingefügt wurden.
         * Die Funktionen werden, mit dem selbst eingerichteten Prefix, in PHP und JSON-RPC wiefolgt zur Verfügung gestellt:
         *
-        * MQTT_Publish($id, $topic, $content);
+        * MQTT_Publish($id, $topic, $content, $qos);
         *
         */
-        public function Publish(string $Topic, string $Content, integer $QoS) {
+        public function Publish(string $Topic, string $Content, integer $Qos) {
             echo "[{$this->InstanceID}] Publishing message on topic: ".$Topic.PHP_EOL;
-            $this->PublishMQTTMessage($Topic, $Content, $QoS);
+            $this->PublishMQTTMessage($Topic, $Content, $Qos);
         }
         
         /**
@@ -67,6 +71,8 @@
 
 ################## helper functions / wrapper
 
+		/**
+		 */
         private function PublishMQTTMessage($topic, $message, $qos) {
 			$clientid = $this->ReadPropertyString('ClientID');
     		$brokerurl = $this->ReadPropertyString('BrokerURL');
@@ -79,6 +85,7 @@
     			$mqtt -> close();
     		}
         }
+		
     }
     
     

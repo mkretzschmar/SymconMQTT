@@ -3,7 +3,7 @@
 	[
 		{ "type": "ValidationTextBox", "name": "ClientID",  "caption": "Client ID" },
 		{ "type": "ValidationTextBox", "name": "BrokerURL", "caption": "Broker IP" },
-		{ "type": "NumberSpinner",     "name": "Port", "caption": "Port", "value" : "1883" },
+		{ "type": "NumberSpinner",     "name": "Port", "caption": "Port (default 1883)", "value" : "1883" },
 		{ "type": "CheckBox",          "name": "CleanSession", "caption": "Clean Session", "value" : true },
 		{ "type": "Label", "caption": "Credentials (optional)" },
 		{ "type": "ValidationTextBox", "name": "Username", "caption": "Benutzer" },
