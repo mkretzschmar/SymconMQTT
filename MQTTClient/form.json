@@ -25,7 +25,7 @@
 	"actions":
 	[
 		{ "type": "Button", "label": "Update", "onClick": "MQTT_RequestInfo($id);" },
-		{ "type": "Button", "label": "Publish", "onClick": "MQTT_Publish($id, $Topic, $Content);" }
+		{ "type": "Button", "label": "Publish", "onClick": "MQTT_Publish($id, $Topic, $Content, $Qos);" }
 	],
     "status":
     [
