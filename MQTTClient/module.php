@@ -7,7 +7,6 @@
 		//
 		public function __construct($InstanceID) {
             parent::__construct($InstanceID);  // DO NOT EDIT OR DELETE THIS LINE!
-             // Custom code
         }
 		
 		//
@@ -30,7 +29,8 @@
             $this->RegisterPropertyString("LastWillMessage", "Er ist tot, Jim");
             //$this->RegisterPropertyInteger("LastWillQOS", 0);
 
-            $this->RegisterPropertyString("Topic", "hello");
+            $this->RegisterPropertyInteger("QoS", 0);
+			$this->RegisterPropertyString("Topic", "hello");
             $this->RegisterPropertyString("Content", "Hello from IP-Symcon!");
         }
         
@@ -38,32 +38,8 @@
         public function ApplyChanges()
         {
         	parent::ApplyChanges(); // DO NOT EDIT OR DELETE THIS LINE!
-			
-    		//$this->RegisterProfileIntegerEx("milight.State", "", "", "", Array(
-    		//	Array(0, 'off', '', -1),
-    		//	Array(1, 'white', '', -1),
-    		//	Array(2, 'color', '', -1)
-    		//));
-    		//$this->RegisterVariableInteger("STATE", "STATE", "milight.State", 1);
-    		//$this->EnableAction("STATE");
-    		//$this->RegisterVariableInteger("Color", "Color", "~HexColor", 2);
-    		//$this->EnableAction("Color");
-    		//$this->RegisterVariableInteger("Brightness", "Brightness", "~Intensity.255", 3);
-    		//$this->EnableAction("Brightness");
-    		//$this->SetVisibility(0);
-    		
-    		//$this->TestBroker();
     	}
-        
-//        /**
-//         * 
-//         */
-//        private function TestBroker() {
-//            echo "Instanz: ".$this->InstanceID.PHP_EOL;
-//            $this->PublishMQTTMessage("test", "TestBroker() InstanceID=".$this->InstanceID, 0);
-//			echo "Verbindung zum MQTT Broker erfolgreich getestet.".PHP_EOL;
-//        }
-        
+
         /**
         * Die folgenden Funktionen stehen automatisch zur Verfügung, wenn das Modul über die "Module Control" eingefügt wurden.
         * Die Funktionen werden, mit dem selbst eingerichteten Prefix, in PHP und JSON-RPC wiefolgt zur Verfügung gestellt:
@@ -71,11 +47,9 @@
         * MQTT_Publish($id, $topic, $content);
         *
         */
-        public function Publish(string $Topic, string $Content) {
-			//$topic = $this->ReadPropertyString("Topic");
-			//$content = $this->ReadPropertyString("Content");
+        public function Publish(string $Topic, string $Content, integer $QoS) {
             echo "[{$this->InstanceID}] Publishing message on topic: ".$Topic.PHP_EOL;
-            $this->PublishMQTTMessage($Topic, $Content, 0);
+            $this->PublishMQTTMessage($Topic, $Content, $QoS);
         }
         
         /**
@@ -85,7 +59,7 @@
         *
         */
         public function RequestInfo() {
-            echo $this->InstanceID;
+            echo "InstanceID: ".$this->InstanceID;
             $this->PublishMQTTMessage("test", "RequestInfo() ID ".$this->InstanceID, 0);
         }
     
@@ -93,17 +67,15 @@
 
 ################## helper functions / wrapper
 
-        private function PublishMQTTMessage($topic, $message, $QoS) {
-           	//$mqtt = new phpMQTT("whz-aiis-work", 1883, "SYMCON01"); //Change client name to something unique
-    		//$mqtt = new phpMQTT("141.32.56.57", 1883, "SYMCON01");
+        private function PublishMQTTMessage($topic, $message, $qos) {
 			$clientid = $this->ReadPropertyString('ClientID');
     		$brokerurl = $this->ReadPropertyString('BrokerURL');
     		$port = $this->ReadPropertyInteger('Port');
     		$mqtt = new phpMQTT($brokerurl, $port, $clientid);
     		if ($mqtt -> connect()) {
     			//$mqtt->publish($topic, base64_encode($message),0);
-    			echo $topic;
-    			$mqtt -> publish($topic, $message, $QoS);
+    			//echo $topic;
+    			$mqtt -> publish($topic, $message, $qos);
     			$mqtt -> close();
     		}
         }
