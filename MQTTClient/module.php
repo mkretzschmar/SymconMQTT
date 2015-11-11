@@ -5,13 +5,13 @@
         * Die folgenden Funktionen stehen automatisch zur Verfügung, wenn das Modul über die "Module Control" eingefügt wurden.
         * Die Funktionen werden, mit dem selbst eingerichteten Prefix, in PHP und JSON-RPC wiefolgt zur Verfügung gestellt:
         *
-        * MQT_Publish($id);
+        * MQT_Publish($id, $topic, $content);
         *
         */
         public function Publish($topic, $content) {
             echo $this->InstanceID.PHP_EOL;
             echo "Publishing message on topic ".$topic.PHP_EOL;
-            MQTTHelper::sendMQTTMessage("test","This is a test.",0);
+            MQTTHelper::sendMQTTMessage("test","This is a test.", 0);
         }
         
         /**
