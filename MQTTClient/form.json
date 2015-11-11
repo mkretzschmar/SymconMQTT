@@ -24,8 +24,8 @@
 	],
 	"actions":
 	[
-        { "type": "ValidationTextBox", "name": "Topic", "caption": "Topic" }
-        { "type": "ValidationTextBox", "name": "Content", "caption": "Payload" }
+        { "type": "ValidationTextBox", "name": "Topic", "caption": "Topic" },
+        { "type": "ValidationTextBox", "name": "Content", "caption": "Payload" },
 		{
 			"name": "QOS",
 			"type": "Select",
