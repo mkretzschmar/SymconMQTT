@@ -75,6 +75,7 @@ class MQTTPublisher extends IPSModule {
 	/**
 	 */
 	private function PublishMQTTMessage($topic, $message, $qos) {
+		echo "QoS: ". $qos;
 		$clientid = $this -> ReadPropertyString('ClientID');
 		$brokerurl = $this -> ReadPropertyString('BrokerURL');
 		$port = $this -> ReadPropertyInteger('Port');
