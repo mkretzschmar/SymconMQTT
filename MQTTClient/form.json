@@ -24,19 +24,19 @@
 	],
 	"actions":
 	[
+		{ "type": "Button", "label": "Update", "onClick": "MQTT_RequestInfo($id);" },
         { "type": "ValidationTextBox", "name": "Topic", "caption": "Topic" },
         { "type": "ValidationTextBox", "name": "Content", "caption": "Payload" },
 		{
-			"name": "QOS",
+			"name": "Qos",
 			"type": "Select",
-			"caption": "QOS",
+			"caption": "Qos",
 			"options": [
 				{ "label": "0 (at most once)", "value": 0 },
 				{ "label": "1 (at least once)", "value": 1 },
 				{ "label": "2 (exactly once)", "value": 2 }
 			]
 		},
-		{ "type": "Button", "label": "Update", "onClick": "MQTT_RequestInfo($id);" },
 		{ "type": "Button", "label": "Publish", "onClick": "MQTT_Publish($id, $Topic, $Content, $Qos);" }
 	],
     "status":
