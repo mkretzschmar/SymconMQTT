@@ -36,7 +36,7 @@
          */
         private function TestBroker() {
             echo $this->InstanceID.PHP_EOL;
-            PublishMQTTMessage("test", "TestBroker() ID ".$this->InstanceID, 0);
+            $this->PublishMQTTMessage("test", "TestBroker() ID ".$this->InstanceID, 0);
         }
         
         /**
@@ -49,7 +49,7 @@
         public function Publish(string $Topic, string $Content) {
             echo $this->InstanceID.PHP_EOL;
             echo "Publishing message on topic ".$Topic.PHP_EOL;
-            PublishMQTTMessage($Topic, $Content, 0);
+            $this->PublishMQTTMessage($Topic, $Content, 0);
         }
         
         /**
