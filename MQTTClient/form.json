@@ -28,7 +28,7 @@
         { "type": "ValidationTextBox", "name": "Topic", "caption": "Topic" },
         { "type": "ValidationTextBox", "name": "Content", "caption": "Payload" },
         { "type": "NumberSpinner", "name": "Qos", "caption": "QoS" },
-		{ "type": "Button", "label": "Publish", "onClick": "MQTT_Publish($id, $Topic, $Content, 0);" }
+		{ "type": "Button", "label": "Publish", "onClick": "MQTT_Publish($id, $Topic, $Content, $Qos);" }
 	],
     "status":
     [
