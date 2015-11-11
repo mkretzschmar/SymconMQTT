@@ -16,15 +16,17 @@
         	
             parent::Create(); // DO NOT EDIT OR DELETE THIS LINE!
 			
-            $this->RegisterPropertyString("Name", "MQTTPublisher");
             $this->RegisterPropertyString("ClientID", "SYMCON_".gethostname());
             $this->RegisterPropertyString("BrokerURL", "141.32.56.57");
             $this->RegisterPropertyInteger("Port", 1883);
             
 			$this->RegisterPropertyBoolean("CleanSession", true);
 			
+			$this->RegisterPropertyString("Username", "");
+            $this->RegisterPropertyString("Password", "");
+            
             $this->RegisterPropertyInteger("LastWillQOS", 0);
-			$this->RegisterPropertyString("LastWillTopic", "lastwill");
+			$this->RegisterPropertyString("LastWillTopic", "");
             $this->RegisterPropertyString("LastWillMessage", "Er ist tot, Jim");
             //$this->RegisterPropertyInteger("LastWillQOS", 0);
 
@@ -50,17 +52,17 @@
     		//$this->EnableAction("Brightness");
     		//$this->SetVisibility(0);
     		
-    		$this->TestBroker();
+    		//$this->TestBroker();
     	}
         
-        /**
-         * 
-         */
-        private function TestBroker() {
-            echo "Instanz: ".$this->InstanceID.PHP_EOL;
-            $this->PublishMQTTMessage("test", "TestBroker() InstanceID=".$this->InstanceID, 0);
-			echo "Verbindung zum MQTT Broker erfolgreich getestet.".PHP_EOL;
-        }
+//        /**
+//         * 
+//         */
+//        private function TestBroker() {
+//            echo "Instanz: ".$this->InstanceID.PHP_EOL;
+//            $this->PublishMQTTMessage("test", "TestBroker() InstanceID=".$this->InstanceID, 0);
+//			echo "Verbindung zum MQTT Broker erfolgreich getestet.".PHP_EOL;
+//        }
         
         /**
         * Die folgenden Funktionen stehen automatisch zur Verfügung, wenn das Modul über die "Module Control" eingefügt wurden.
