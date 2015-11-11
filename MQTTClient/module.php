@@ -50,12 +50,12 @@ class MQTTPublisher extends IPSModule {
 	 * Die folgenden Funktionen stehen automatisch zur Verf�gung, wenn das Modul �ber die "Module Control" eingef�gt wurden.
 	 * Die Funktionen werden, mit dem selbst eingerichteten Prefix, in PHP und JSON-RPC wiefolgt zur Verfügung gestellt:
 	 *
-	 * MQTT_Publish($id, $topic, $content, $qos);
+	 * MQTT_Publish($id, $topic, $content, $qos, $retained);
 	 *
 	 */
-	public function Publish(string $Topic, string $Content, integer $Qos) {
+	public function Publish(string $Topic, string $Content, integer $Qos, boolean $Retained) {
 		//if(!isset($Qos)) $Qos = 0; // DIRTY WORKAROUND!!!
-		echo "[{$this->InstanceID}] Publishing message on topic: " . $Topic . ". QoS: ". $Qos . PHP_EOL;
+		echo "[{$this->InstanceID}] Publish() Topic: " . $Topic . ", QoS: ". $Qos .", Retained: ". $Retained . PHP_EOL;
 		$this -> PublishMQTTMessage($Topic, $Content, $Qos);
 	}
 
@@ -67,15 +67,15 @@ class MQTTPublisher extends IPSModule {
 	 */
 	public function RequestInfo() {
 		echo "InstanceID: " . $this -> InstanceID;
-		$this -> PublishMQTTMessage("test", "RequestInfo() ID " . $this -> InstanceID, 0);
+		$this -> PublishMQTTMessage("test", "MQTT Publisher VarID=" . $this -> InstanceID, 0, false);
 	}
 
 	################## helper functions / wrapper
 
 	/**
 	 */
-	private function PublishMQTTMessage($topic, $message, $qos) {
-		echo "QoS: ". $qos;
+	private function PublishMQTTMessage($topic, $message, $qos, $retained) {
+		echo "QoS: ". $qos.", Retained: ".$retained.PHP_EOL;
 		$clientid = $this -> ReadPropertyString('ClientID');
 		$brokerurl = $this -> ReadPropertyString('BrokerURL');
 		$port = $this -> ReadPropertyInteger('Port');
@@ -83,7 +83,7 @@ class MQTTPublisher extends IPSModule {
 		if ($mqtt -> connect()) {
 			//$mqtt->publish($topic, base64_encode($message),0);
 			//echo $topic;
-			$mqtt -> publish($topic, $message, $qos);
+			$mqtt -> publish($topic, $message, $qos, $retained);
 			$mqtt -> close();
 		}
 	}
@@ -358,7 +358,7 @@ class phpMQTT {
 
 	/* publish: publishes $content on a $topic */
 	function publish($topic, $content, $qos = 0, $retain = 0) {
-
+		echo "qos: ".$qos."retain: ".$retain;
 		$i = 0;
 		$buffer = "";
 
