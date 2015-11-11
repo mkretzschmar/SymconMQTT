@@ -1,13 +1,13 @@
 {
 	"elements":
 	[
-		{ "type": "ValidationTextBox", "name": "ClientID",  "caption": "Client ID" },
-		{ "type": "ValidationTextBox", "name": "BrokerURL", "caption": "Broker IP" },
-		{ "type": "NumberSpinner",     "name": "Port", "caption": "Port (default 1883)", "value" : "1883" },
-		{ "type": "CheckBox",          "name": "CleanSession", "caption": "Clean Session", "value" : true },
+		{ "type": "ValidationTextBox", "name": "ClientID",     "caption": "Client ID" },
+		{ "type": "ValidationTextBox", "name": "BrokerURL",    "caption": "Broker IP" },
+		{ "type": "NumberSpinner",     "name": "Port",         "caption": "Port (default 1883)"},
+		{ "type": "CheckBox",          "name": "CleanSession", "caption": "Clean Session"},
 		{ "type": "Label", "caption": "Credentials (optional)" },
-		{ "type": "ValidationTextBox", "name": "Username", "caption": "Benutzer" },
-        { "type": "PasswordTextBox", "name": "Password", "caption": "Passwort" },
+		{ "type": "ValidationTextBox", "name": "Username",     "caption": "Benutzer" },
+        { "type": "PasswordTextBox",   "name": "Password",     "caption": "Passwort" },
 		{ "type": "Label", "caption": "LastWill (optional)" },
 		{ "type": "ValidationTextBox", "name": "LastWillTopic", "caption": "LastWill Topic" },
 		{
@@ -27,16 +27,7 @@
 		{ "type": "Button", "label": "Update", "onClick": "MQTT_RequestInfo($id);" },
         { "type": "ValidationTextBox", "name": "Topic", "caption": "Topic" },
         { "type": "ValidationTextBox", "name": "Content", "caption": "Payload" },
-		{
-			"name": "Qos",
-			"type": "Select",
-			"caption": "Qos",
-			"options": [
-				{ "label": "0 (at most once)", "value": 0 },
-				{ "label": "1 (at least once)", "value": 1 },
-				{ "label": "2 (exactly once)", "value": 2 }
-			]
-		},
+        { "type": "NumberSpinner", "name": "Qos", "caption": "QoS" },
 		{ "type": "Button", "label": "Publish", "onClick": "MQTT_Publish($id, $Topic, $Content, $Qos);" }
 	],
     "status":
