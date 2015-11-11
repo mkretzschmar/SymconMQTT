@@ -53,7 +53,7 @@ class MQTTPublisher extends IPSModule {
 	 * MQTT_Publish($id, $topic, $content, $qos);
 	 *
 	 */
-	public function Publish(string $Topic, string $Content, integer $Qos) {
+	public function Publish(string $Topic, string $Content, int $Qos) {
 		echo "[{$this->InstanceID}] Publishing message on topic: " . $Topic . PHP_EOL;
 		$this -> PublishMQTTMessage($Topic, $Content, $Qos);
 	}
