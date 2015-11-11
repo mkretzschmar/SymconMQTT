@@ -1,9 +1,11 @@
 {
 	"elements":
 	[
+		{ "name": "ClientID", "type": "ValidationTextBox", "caption": "Client ID" },
 		{ "name": "BrokerIP", "type": "ValidationTextBox", "caption": "Broker IP" },
-		{ "name": "Port", "type": "NumberSpinner", "caption": "1883" },
-        { "type": "ValidationTextBox", "name": "Username", "caption": "Username" },
+		{ "name": "Port", "type": "NumberSpinner", "caption": "Port", "value" : "1883" },
+		{ "type": "Label", "value": "Optional" },
+		{ "type": "ValidationTextBox", "name": "Username", "caption": "Username" },
         { "type": "ValidationTextBox", "name": "Password", "caption": "Password" }
 	],
 	"actions":
@@ -12,6 +14,7 @@
 	],
     "status":
     [
+        { "code": 101, "icon": "active", "caption": "Not Connected" },
         { "code": 102, "icon": "active", "caption": "Connected" },
         { "code": 201, "icon": "error", "caption": "Authentication failed" },
         { "code": 202, "icon": "error", "caption": "No credits left" }
