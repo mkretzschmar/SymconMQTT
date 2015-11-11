@@ -60,7 +60,7 @@
         * MQTT_Publish($id, $topic, $content);
         *
         */
-        public function Publish(string $Topic, string $Content) {
+        public function Publish($Topic, $Content) {
             echo "[{$this->InstanceID}] Publishing message on topic ".$Topic.PHP_EOL;
             $this::PublishMQTTMessage($Topic, $Content, 0);
         }
