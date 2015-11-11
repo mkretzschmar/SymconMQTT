@@ -1,11 +1,14 @@
 <?
-    // Klassendefinition
+/**
+ *
+ */
     class MQTTClient extends IPSModule {
         
         public function Create()
         {
-        	//Never delete this line!
-            parent::Create();
+        	
+            parent::Create(); // DO NOT EDIT THIS LINE!
+			
             $this->RegisterPropertyString("ClientID", "SYMCON_".gethostname());
             $this->RegisterPropertyString("BrokerURL", "141.32.56.57");
             $this->RegisterPropertyInteger("Port", 1883);
@@ -70,7 +73,10 @@
         private function PublishMQTTMessage($topic, $message, $QoS) {
            	//$mqtt = new phpMQTT("whz-aiis-work", 1883, "SYMCON01"); //Change client name to something unique
     		//$mqtt = new phpMQTT("141.32.56.57", 1883, "SYMCON01");
-    		$mqtt = new phpMQTT("141.32.56.57", 1883, "SYMCON01");
+			$clientid = $this->ReadPropertyString('ClientID');
+    		$brokerurl = $this->ReadPropertyString('BrokerURL');
+    		$port = $this->ReadPropertyInteger('Port');
+    		$mqtt = new phpMQTT($brokerurl, $port, $clientid);
     		if ($mqtt -> connect()) {
     			//$mqtt->publish($topic, base64_encode($message),0);
     			echo $topic;
