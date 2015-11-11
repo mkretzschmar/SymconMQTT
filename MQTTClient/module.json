@@ -1,11 +1,11 @@
 {
     "id": "{4240CD05-760E-4E83-B5D1-DC237C9E160F}",
-    "name": "MQTTClient",
+    "name": "MQTTPublisher",
     "type": 1,
     "vendor": "samsol",
     "aliases":
     [
-        "MQTTClient"
+        "MQTTPublisher"
     ],  
     "parentRequirements": [],
     "childRequirements": [],

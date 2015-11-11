@@ -20,7 +20,15 @@
             $this->RegisterPropertyString("ClientID", "SYMCON_".gethostname());
             $this->RegisterPropertyString("BrokerURL", "141.32.56.57");
             $this->RegisterPropertyInteger("Port", 1883);
-            $this->RegisterPropertyString("Topic", "test");
+            
+			$this->RegisterPropertyBoolean("CleanSession", true);
+			
+            $this->RegisterPropertyInteger("LastWillQOS", 0);
+			$this->RegisterPropertyString("LastWillTopic", "lastwill");
+            $this->RegisterPropertyString("LastWillMessage", "Er ist tot, Jim");
+            //$this->RegisterPropertyInteger("LastWillQOS", 0);
+
+            $this->RegisterPropertyString("Topic", "hello");
             $this->RegisterPropertyString("Content", "Hello from IP-Symcon!");
         }
         
