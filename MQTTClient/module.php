@@ -55,7 +55,7 @@
         * Die folgenden Funktionen stehen automatisch zur Verfügung, wenn das Modul über die "Module Control" eingefügt wurden.
         * Die Funktionen werden, mit dem selbst eingerichteten Prefix, in PHP und JSON-RPC wiefolgt zur Verfügung gestellt:
         *
-        * MQTT_Publish($id, $topic, $content);
+        * MQTT_Publish($id, $Topic, $Content);
         *
         */
         public function Publish(string $Topic, string $Content) {
