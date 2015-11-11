@@ -21,7 +21,7 @@ class MQTTPublisher extends IPSModule {
 		// DO NOT EDIT OR DELETE THIS LINE!
 
 		$this -> RegisterPropertyString("ClientID", "SYMCON_" . gethostname());
-		$this -> RegisterPropertyString("BrokerURL", "141.32.56.57");
+		$this -> RegisterPropertyString("BrokerURL", "iot.eclipse.org");
 		$this -> RegisterPropertyInteger("Port", 1883);
 
 		$this -> RegisterPropertyBoolean("CleanSession", true);
@@ -55,7 +55,7 @@ class MQTTPublisher extends IPSModule {
 	 */
 	public function Publish(string $Topic, string $Content, integer $Qos) {
 		//if(!isset($Qos)) $Qos = 0; // DIRTY WORKAROUND!!!
-		echo "[{$this->InstanceID}] Publishing message on topic: " . $Topic . ". Qos: ". $Qos . PHP_EOL;
+		echo "[{$this->InstanceID}] Publishing message on topic: " . $Topic . ". QoS: ". $Qos . PHP_EOL;
 		$this -> PublishMQTTMessage($Topic, $Content, $Qos);
 	}
 
