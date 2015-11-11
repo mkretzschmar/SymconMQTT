@@ -1,7 +1,7 @@
 {
 	"elements":
 	[
-		{ "name": "Broker IP", "type": "ValidationTextBox", "caption": "X" },
+		{ "name": "BrokerIP", "type": "ValidationTextBox", "caption": "Broker IP" },
 		{ "name": "Port", "type": "NumberSpinner", "caption": "1883" },
         { "type": "ValidationTextBox", "name": "Username", "caption": "Username" },
         { "type": "ValidationTextBox", "name": "Password", "caption": "Password" }

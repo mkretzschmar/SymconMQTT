@@ -1,4 +1,4 @@
 PHP Modules for IP-Symcon
 ================
 
-* MQTT
+This module provides an MQTT Client as I/O Instance.

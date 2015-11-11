@@ -11,5 +11,15 @@
         public function Publish() {
             echo $this->InstanceID;
         }
+        
+        /**
+        * 
+        *
+        * MQT_RequestInfo($id);
+        *
+        */
+        public function RequestInfo() {
+            echo $this->InstanceID;
+        }
     }
 ?>
