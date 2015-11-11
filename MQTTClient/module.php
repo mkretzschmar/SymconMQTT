@@ -16,9 +16,12 @@
         	
             parent::Create(); // DO NOT EDIT OR DELETE THIS LINE!
 			
+            $this->RegisterPropertyString("Name", "MQTTClient");
             $this->RegisterPropertyString("ClientID", "SYMCON_".gethostname());
             $this->RegisterPropertyString("BrokerURL", "141.32.56.57");
             $this->RegisterPropertyInteger("Port", 1883);
+            $this->RegisterPropertyString("Topic", "test");
+            $this->RegisterPropertyString("Content", "Hello from IP-Symcon!");
         }
         
 		//
@@ -55,7 +58,7 @@
         * Die folgenden Funktionen stehen automatisch zur Verfügung, wenn das Modul über die "Module Control" eingefügt wurden.
         * Die Funktionen werden, mit dem selbst eingerichteten Prefix, in PHP und JSON-RPC wiefolgt zur Verfügung gestellt:
         *
-        * MQTT_Publish($id, $Topic, $Content);
+        * MQTT_Publish($id, $topic, $content);
         *
         */
         public function Publish(string $Topic, string $Content) {
