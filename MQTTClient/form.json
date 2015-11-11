@@ -4,10 +4,11 @@
 		{ "type": "ValidationTextBox", "name": "ClientID",  "caption": "Client ID" },
 		{ "type": "ValidationTextBox", "name": "BrokerURL", "caption": "Broker IP" },
 		{ "type": "NumberSpinner",     "name": "Port", "caption": "Port", "value" : "1883" },
-		{ "type": "Label", "caption": "Optional" },
+		{ "type": "CheckBox",          "name": "CleanSession", "caption": "Clean Session", "value" : true },
+		{ "type": "Label", "caption": "Credentials (optional)" },
 		{ "type": "ValidationTextBox", "name": "Username", "caption": "Benutzer" },
         { "type": "PasswordTextBox", "name": "Password", "caption": "Passwort" },
-		{ "type": "Label", "caption": "LastWill" },
+		{ "type": "Label", "caption": "LastWill (optional)" },
 		{ "type": "ValidationTextBox", "name": "LastWillTopic", "caption": "LastWill Topic" },
 		{
 			"name": "LastWillQOS",
