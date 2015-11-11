@@ -1,12 +1,25 @@
 {
 	"elements":
 	[
-		{ "name": "ClientID", "type": "ValidationTextBox", "caption": "Client ID" },
-		{ "name": "BrokerURL", "type": "ValidationTextBox", "caption": "Broker IP" },
-		{ "name": "Port", "type": "NumberSpinner", "caption": "Port", "value" : "1883" },
-		{ "type": "Label", "value": "Optional" },
+		{ "type": "ValidationTextBox", "name": "ClientID",  "caption": "Client ID" },
+		{ "type": "ValidationTextBox", "name": "BrokerURL", "caption": "Broker IP" },
+		{ "type": "NumberSpinner",     "name": "Port", "caption": "Port", "value" : "1883" },
+		{ "type": "Label", "caption": "Optional" },
 		{ "type": "ValidationTextBox", "name": "Username", "caption": "Benutzer" },
-        { "type": "ValidationTextBox", "name": "Password", "caption": "Passwort" }
+        { "type": "PasswordTextBox", "name": "Password", "caption": "Passwort" },
+		{ "type": "Label", "caption": "LastWill" },
+		{ "type": "ValidationTextBox", "name": "LastWillTopic", "caption": "LastWill Topic" },
+		{
+			"name": "LastWillQOS",
+			"type": "Select",
+			"caption": "LastWill QOS",
+			"options": [
+				{ "label": "0 (at most once)", "value": 0 },
+				{ "label": "1 (at least once)", "value": 1 },
+				{ "label": "2 (exactly once)", "value": 2 }
+			]
+		},
+        { "type": "ValidationTextBox", "name": "LastWillMessage", "caption": "LastWill Message" }
 	],
 	"actions":
 	[
