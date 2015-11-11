@@ -1,14 +1,11 @@
 {
-    "id": "{4240CD05-760E-4E83-B5D1-DC237C9E160F}",
-    "name": "MQTTPublisher",
-    "type": 1,
-    "vendor": "samsol",
-    "aliases":
-    [
-        "MQTT Publisher"
-    ],  
-    "parentRequirements": [],
-    "childRequirements": [],
-    "implemented": [],
-    "prefix": "MQTT"
+	"id": "{4240CD05-760E-4E83-B5D1-DC237C9E160F}",
+	"name": "MQTTPublisher",
+	"type": 1,
+	"vendor": "samsol",
+	"aliases": ["MQTT Publisher"],
+	"parentRequirements": [],
+	"childRequirements": [],
+	"implemented": [],
+	"prefix": "MQTT"
 }
