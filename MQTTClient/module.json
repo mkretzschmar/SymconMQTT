@@ -1,0 +1,14 @@
+{
+    "id": "{34D57EE4-3193-49EA-8B49-6A8AEF81D5A5}",
+    "name": "MQTTClient",
+    "type": 1,
+    "vendor": "samsol",
+    "aliases":
+    [
+        "MQTTClient"
+    ],  
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "MQT"
+}

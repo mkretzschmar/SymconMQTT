@@ -1,0 +1,19 @@
+{
+	"elements":
+	[
+		{ "name": "Broker IP", "type": "ValidationTextBox", "caption": "X" },
+		{ "name": "Port", "type": "NumberSpinner", "caption": "1883" },
+        { "type": "ValidationTextBox", "name": "Username", "caption": "Username" },
+        { "type": "ValidationTextBox", "name": "Password", "caption": "Password" }
+	],
+	"actions":
+	[
+		{ "type": "Button", "label": "Update", "onClick": "MQT_RequestInfo($id);" }
+	],
+    "status":
+    [
+        { "code": 102, "icon": "active", "caption": "Connected" },
+        { "code": 201, "icon": "error", "caption": "Authentication failed" },
+        { "code": 202, "icon": "error", "caption": "No credits left" }
+    ]
+}
