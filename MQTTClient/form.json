@@ -2,7 +2,7 @@
 	"elements":
 	[
 		{ "name": "ClientID", "type": "ValidationTextBox", "caption": "Client ID" },
-		{ "name": "BrokerIP", "type": "ValidationTextBox", "caption": "Broker IP" },
+		{ "name": "BrokerURL", "type": "ValidationTextBox", "caption": "Broker IP" },
 		{ "name": "Port", "type": "NumberSpinner", "caption": "Port", "value" : "1883" },
 		{ "type": "Label", "value": "Optional" },
 		{ "type": "ValidationTextBox", "name": "Username", "caption": "Username" },

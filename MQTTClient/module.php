@@ -1,6 +1,45 @@
 <?
     // Klassendefinition
     class MQTTClient extends IPSModule {
+        
+        public function Create()
+        {
+        	//Never delete this line!
+            parent::Create();
+            $this->RegisterPropertyString("ClientID", "SYMCON_".gethostname());
+            $this->RegisterPropertyString("BrokerURL", "141.32.56.57");
+            $this->RegisterPropertyInteger("Port", 1883);
+        }
+        
+        public function ApplyChanges()
+        {
+        	//Never delete this line!
+            parent::ApplyChanges();
+    		//$this->RegisterProfileIntegerEx("milight.State", "", "", "", Array(
+    		//	Array(0, 'off', '', -1),
+    		//	Array(1, 'white', '', -1),
+    		//	Array(2, 'color', '', -1)
+    		//));
+    		//$this->RegisterVariableInteger("STATE", "STATE", "milight.State", 1);
+    		//$this->EnableAction("STATE");
+    		//$this->RegisterVariableInteger("Color", "Color", "~HexColor", 2);
+    		//$this->EnableAction("Color");
+    		//$this->RegisterVariableInteger("Brightness", "Brightness", "~Intensity.255", 3);
+    		//$this->EnableAction("Brightness");
+    		//$this->SetVisibility(0);
+    		
+    		$this->TestBroker();
+    	}
+        
+        /**
+         * 
+         */
+        private function TestBroker() {
+            echo $this->InstanceID.PHP_EOL;
+            echo "Publishing message on topic ".$Topic.PHP_EOL;
+            $this->PublishMQTTMessage("test", "TestBroker() ID ".$this->InstanceID, 0);
+        }
+        
         /**
         * Die folgenden Funktionen stehen automatisch zur Verfügung, wenn das Modul über die "Module Control" eingefügt wurden.
         * Die Funktionen werden, mit dem selbst eingerichteten Prefix, in PHP und JSON-RPC wiefolgt zur Verfügung gestellt:
@@ -11,7 +50,7 @@
         public function Publish(string $Topic, string $Content) {
             echo $this->InstanceID.PHP_EOL;
             echo "Publishing message on topic ".$Topic.PHP_EOL;
-            MQTTHelper::sendMQTTMessage($Topic, $Content, 0);
+            $this->PublishMQTTMessage($Topic, $Content, 0);
         }
         
         /**
@@ -22,7 +61,23 @@
         */
         public function RequestInfo() {
             echo $this->InstanceID;
-            MQTTHelper::sendMQTTMessage("test", "test", 0);
+            $this->PublishMQTTMessage("test", "RequestInfo() ID ".$this->InstanceID, 0);
+        }
+    
+    
+
+    ################## helper functions / wrapper
+
+        private function PublishMQTTMessage($topic, $message, $QoS) {
+           	//$mqtt = new phpMQTT("whz-aiis-work", 1883, "SYMCON01"); //Change client name to something unique
+    		//$mqtt = new phpMQTT("141.32.56.57", 1883, "SYMCON01");
+    		$mqtt = new phpMQTT("141.32.56.57", 1883, "SYMCON01");
+    		if ($mqtt -> connect()) {
+    			//$mqtt->publish($topic, base64_encode($message),0);
+    			echo $topic;
+    			$mqtt -> publish($topic, $message, $QoS);
+    			$mqtt -> close();
+    		}
         }
     }
     
@@ -31,23 +86,6 @@ define("MYSQL_DATE_FORMAT","Y-m-d H:i:s");
 define("MQTT_QOS_0_AT_MOST_ONCE", 0);
 define("MQTT_QOS_1_AT_LEAST_ONCE", 1);
 define("MQTT_QOS_2_EXACTLY_ONCE", 2);
-
-class MQTTHelper {
-	/**
-	 * -----------------------------------------------------------------------------
-	 */
-	public static function sendMQTTMessage($topic, $message, $QoS) {
-		//$mqtt = new phpMQTT("whz-aiis-work", 1883, "SYMCON01"); //Change client name to something unique
-		$mqtt = new phpMQTT("141.32.56.57", 1883, "SYMCON01");
-		if ($mqtt -> connect()) {
-			//$mqtt->publish($topic, base64_encode($message),0);
-			echo $topic;
-			$mqtt -> publish($topic, $message, $QoS);
-			$mqtt -> close();
-		}
-	}
-
-}
 
 /*
 	Licence
