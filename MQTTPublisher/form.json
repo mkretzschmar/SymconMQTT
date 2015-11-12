@@ -33,8 +33,8 @@
 	],
     "status":
     [
-        { "code": 101, "icon": "inactive", "caption": "Not tested." },
-        { "code": 102, "icon": "active", "caption": "Connection successful tested." },
+        { "code": 101, "icon": "inactive", "caption": "Connection not evaluated." },
+        { "code": 102, "icon": "active", "caption": "Connection successful evaluated." },
         { "code": 201, "icon": "error", "caption": "Authentication failed" },
         { "code": 202, "icon": "error", "caption": "No credits left" }
     ]

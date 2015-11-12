@@ -9,8 +9,6 @@ class MQTTPublisher extends IPSModule {
 	 */
 	public function __construct($InstanceID) {
 		parent::__construct($InstanceID);
-		// DO NOT EDIT OR DELETE THIS LINE!
-		
 	}
 
 	/**
@@ -19,7 +17,6 @@ class MQTTPublisher extends IPSModule {
 	public function Create() {
 
 		parent::Create();
-		// DO NOT EDIT OR DELETE THIS LINE!
 
 		$this -> RegisterPropertyString("ClientID", "SYMCON_" . gethostname());
 		$this -> RegisterPropertyString("BrokerURL", "iot.eclipse.org");
