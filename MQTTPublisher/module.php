@@ -2,7 +2,7 @@
 /**
  *
  */
-class MQTTPublisher extends IPSModule {
+class MQTTClient extends IPSModule {
 
 	/**
 	 *
