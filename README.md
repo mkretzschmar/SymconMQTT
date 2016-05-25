@@ -1,4 +1,4 @@
-MQTT Module for IP-Symcon
+MQTT Module for IP-Symcon (Early Beta)
 ================
 
 This module provides an MQTT Publisher as I/O Instance.
